@@ -28,10 +28,10 @@ So, we can extend the basic _haversineDistance_ function by writing simple funct
 Our Users have Cars. Those Cars emit _events_ such as FUEL-LEVEL-EVENT, SPEEDOMETER-EVENT etc. They also emit a GPS-EVENT, telling us where their Cars are from minute to minute. 
 Now, our KDB+ database contains, conveniently, the following tables:
 
-`Table 1: Makes, Models, Years
-	makeModelYearTable:([vin]make; model; year; kmPerGallon; tankSize)
-Table 2 Gas Stations & Locations
-	gasStationTable:([station_id_]lat; lon; companyName; fuelBrand; openingHour; closingHour)`
+#### Table 1: Makes, Models, Years
+	`makeModelYearTable:([vin]make; model; year; kmPerGallon; tankSize)`
+#### Table 2 Gas Stations & Locations
+	`gasStationTable:([station_id_]lat; lon; companyName; fuelBrand; openingHour; closingHour)`
 	
 So, let's imagine that we receive a GPS-EVENT for vehicle with vin (unique vehicle id numbering system) 12345500 with position [51.5085300;-0.1257400], and a few seconds later we receive for the same vehicle a FUEL-LEVEL-EVENT with fuelLevel = 0.5 gallons. 
 
