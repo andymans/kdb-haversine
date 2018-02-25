@@ -2,7 +2,7 @@
 Screaming fast geo-near, and radius queries using KDB+, the world's fastest number cruncher from https://kx.com.
 ---  
 ## What does it do?
-This is a trivially simple function that, for 2 pairs of _lat/lon_ points on the earth's surface, returns an accurate( for most use cases ) value of the distance betwwen them, using _q_, the language of the KDB+ platform. The applied _haversine formula_ is nothing new, but it's presented here in a way that allows it to perform fast under heavy load at scale.
+This is a trivially simple function that, for 2 pairs of _lat/lon_ points on the earth's surface, returns an accurate( for most use cases ) value of the distance between them, using _q_, the language of the KDB+ platform. The applied _haversine formula_ is nothing new, but it's presented here in a way that allows it to perform fast under heavy load at scale.
 ### How could I use it and what for?
 The basic _haversineDistance_ function does a fairly trivial job:  
 It provides a distance in km between two points. If that's your use case, then you're all done. But, frankly computing the distance bewteen two points is fairly straightforward - several implementations of the formula can be viewed [here](http://www.movable-type.co.uk/scripts/latlong.html "Calculate distance, bearing and more between Latitude/Longitude points"). The value of a _q_ implementation comes from the power and raw speed of KDB+, which can operate over literally billions of rows per second.
