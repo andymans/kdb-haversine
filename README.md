@@ -6,7 +6,7 @@ This is a trivially simple function that, for 2 pairs of _lat/lon_ points on the
 ### How could I use it and what for?
 The basic _haversineDistance_ function does a fairly trivial job:  
 It provides a distance in km between two points. If that's your use case, then you're all done. But, frankly computing the distance bewteen two points is fairly straightforward - several implementations of the formula can be viewed [here](http://www.movable-type.co.uk/scripts/latlong.html "Calculate distance, bearing and more between Latitude/Longitude points"). The value of a _q_ implementation comes from the power and raw speed of KDB+, which can operate over literally billions of rows per second.
-###Simple Invocation
+### Simple Invocation
 The function, standalone takes 4 parameters lat1, lon1, lat2, lon2, corresponding to 2 _lat/lon_ pairs. To use it:
 
 `haversineDistance[lat1; lon1; lat2; lon2]`
