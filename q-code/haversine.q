@@ -13,7 +13,7 @@ pi: acos -1
 
 / Declare the radius of the Earth (in kilometres), and assign it a value. 
 
-radiusInKilometres: 6371
+radiusInKilometres: 6371.0088
 
 
 //------------HELPER FUNCTIONS------------//
@@ -40,9 +40,10 @@ toRadian:{pi * x % 180}
 / Function: haversineDistance - returns a distance between two points (lat/lon pairs) that is useably accurate for a large number of use cases
 / params - w, x represent lat/lon pair 1, while y, z correspond to  lat/lon pair 2 
 
-haversineDistance:{[w;x;y;z]
-	radiusInKilometres*(2*atan2SquareRoots[(sinP[(toRadian[((y)-(w))])]+sinP[(toRadian[((z)-(x))])]*(cos(toRadian[w]))*(cos(toRadian[y])))])
-	}
+haversineDistance:{[w;x;y;z]  
+	d:xexp[sin(-[toRadian[y];toRadian[w]]*0.5);2] + (((cos(toRadian[w])) * cos(toRadian[y])) * xexp[sin(-[toRadian[z];toRadian[x]]*0.5);2]);
+	(2 * radiusInKilometres) * asin(sqrt(d))
+ }
 
 
 / How To Use:
